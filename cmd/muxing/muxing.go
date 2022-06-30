@@ -108,7 +108,7 @@ func handleHeaders(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	result = a1 + b1
-	w.Header().Add("a+b", string(rune(result)))
+	w.Header().Add("a+b", strconv.Itoa(result))
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(""))
 }
