@@ -74,6 +74,7 @@ func handleBad(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusInternalServerError)
 }
 
+//error
 func handleData(w http.ResponseWriter, r *http.Request) {
 	//code
 	var param []byte
@@ -91,6 +92,7 @@ func handleData(w http.ResponseWriter, r *http.Request) {
 	w.Write(data)
 }
 
+//error
 func handleHeaders(w http.ResponseWriter, r *http.Request) {
 	//code
 	var a1, b1, result int
