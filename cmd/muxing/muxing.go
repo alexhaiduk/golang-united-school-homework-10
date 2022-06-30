@@ -75,7 +75,7 @@ func handleBad(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusInternalServerError)
 }
 
-//error
+//error fixed
 func handleData(w http.ResponseWriter, r *http.Request) {
 	//code
 	var param []byte
@@ -99,8 +99,8 @@ func handleHeaders(w http.ResponseWriter, r *http.Request) {
 	//code
 	var a1, b1, result int
 	var err error
-	a := r.Header["a"][0]
-	b := r.Header["b"][0]
+	a := r.Header.Get("a")
+	b := r.Header.Get("b")
 	if a1, err = strconv.Atoi(a); err != nil {
 		log.Fatal(err)
 	}
@@ -110,5 +110,5 @@ func handleHeaders(w http.ResponseWriter, r *http.Request) {
 	result = a1 + b1
 	w.Header().Add("a+b", string(rune(result)))
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(""))
+	//w.Write([]byte(""))
 }
