@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -79,8 +80,9 @@ func handleData(w http.ResponseWriter, r *http.Request) {
 	//code
 	var param []byte
 	//if count, err := r.Body.Read(param); err != nil {
-	//d, err := io.ReadAll(r.Body)
-	if _, err := r.Body.Read(param); err != nil {
+	param, err := io.ReadAll(r.Body)
+	if err != nil {
+		//if _, err := r.Body.Read(param); err != nil {
 		log.Fatal(err)
 	}
 	//if count == 0 {
